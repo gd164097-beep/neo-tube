@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeoTube - YouTube Premium Clone</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Anúncio AdMob -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-app-pub-3550157746089949" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Menu Lateral -->
+    <aside id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <h2 class="logo">
+                <i class="fa fa-youtube-play"></i> NeoTube
+            </h2>
+            <button id="closeMenu" class="icon-btn">
+                <i class="fa fa-times"></i>
+            </button>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="#inicio" class="nav-item active">
+                <i class="fa fa-home"></i> Início
+            </a>
+            <a href="#canal" class="nav-item">
+                <i class="fa fa-user-circle"></i> Canal
+            </a>
+            <a href="#videos" class="nav-item">
+                <i class="fa fa-play-circle"></i> Vídeos
+            </a>
+            <a href="#shorts" class="nav-item">
+                <i class="fa fa-film"></i> Shorts
+            </a>
+            <a href="#playlists" class="nav-item">
+                <i class="fa fa-list"></i> Playlists
+            </a>
+            <a href="#favoritos" class="nav-item">
+                <i class="fa fa-star"></i> Favoritos
+            </a>
+            <a href="#historico" class="nav-item">
+                <i class="fa fa-history"></i> Histórico
+            </a>
+            <a href="#estatisticas" class="nav-item">
+                <i class="fa fa-bar-chart"></i> Estatísticas
+            </a>
+            <a href="#configuracoes" class="nav-item">
+                <i class="fa fa-cog"></i> Configurações
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Conteúdo Principal -->
+    <main class="main-content">
+        <header class="top-bar">
+            <button id="menuBtn" class="icon-btn">
+                <i class="fa fa-bars"></i>
+            </button>
+            
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Pesquisar canal, ID ou link...">
+                <button id="searchBtn" class="search-btn">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+
+            <button id="settingsBtn" class="icon-btn">
+                <i class="fa fa-cog"></i>
+            </button>
+        </header>
+
+        <!-- Área de anúncio -->
+        <div class="ad-container">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-app-pub-3550157746089949"
+                 data-ad-slot="5417006456"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <div id="contentArea" class="content-area">
+            <section id="inicio" class="page active">
+                <div class="welcome-container">
+                    <h1 class="neon-text">Bem-vindo ao NeoTube</h1>
+                    <p class="subtitle">Pesquise por qualquer canal do YouTube para explorar</p>
+                    
+                    <div class="info-card glass">
+                        <h3>📋 Como usar</h3>
+                        <ul>
+                            <li>Insira qualquer link do canal, @usuario ou ID</li>
+                            <li>Veja dados completos, vídeos, shorts e playlists</li>
+                            <li>Salve seus favoritos e acompanhe estatísticas</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="canal" class="page">
+                <div id="canalBanner" class="canal-banner"></div>
+                <div id="canalInfo" class="canal-info"></div>
+            </section>
+
+            <section id="videos" class="page">
+                <h2 class="section-title">📺 Últimos Vídeos</h2>
+                <div id="videosGrid" class="videos-grid"></div>
+            </section>
+
+            <section id="shorts" class="page">
+                <h2 class="section-title">⚡ Shorts</h2>
+                <div id="shortsContainer" class="shorts-container"></div>
+            </section>
+
+            <section id="playlists" class="page">
+                <h2 class="section-title">📂 Playlists</h2>
+                <div id="playlistsGrid" class="playlists-grid"></div>
+            </section>
+
+            <section id="favoritos" class="page">
+                <h2 class="section-title">⭐ Favoritos</h2>
+                <div id="favoritosContent" class="favoritos-content"></div>
+            </section>
+
+            <section id="historico" class="page">
+                <h2 class="section-title">🕒 Histórico</h2>
+                <div id="historicoContent" class="historico-content"></div>
+            </section>
+
+            <section id="estatisticas" class="page">
+                <h2 class="section-title">📊 Estatísticas do Canal</h2>
+                <div id="estatisticasContent" class="estatisticas-content"></div>
+            </section>
+
+            <section id="configuracoes" class="page">
+                <h2 class="section-title">⚙️ Configurações</h2>
+                <div class="config-container glass">
+                    <div class="config-item">
+                        <h3>🔑 Chave da API</h3>
+                        <input type="text" id="configApiInput" value="AIzaSyAu7HkR91ZNMG7F5-Ar-XUVt_KrtF_bjvk" placeholder="Insira sua chave da API">
+                        <button id="updateApiBtn" class="neon-btn">Atualizar</button>
+                        <button id="removeApiBtn" class="danger-btn">Remover</button>
+                    </div>
+
+                    <div class="config-item">
+                        <h3>💾 Dados Salvos</h3>
+                        <button id="clearFavoritesBtn" class="warning-btn">Limpar Favoritos</button>
+                        <button id="clearHistoryBtn" class="warning-btn">Limpar Histórico</button>
+                        <button id="clearAllBtn" class="danger-btn">Limpar Todos os Dados</button>
+                    </div>
+
+                    <div class="config-item">
+                        <h3>🎨 Aparência</h3>
+                        <label class="switch">
+                            <input type="checkbox" id="themeToggle">
+                            <span class="slider"></span>
+                        </label>
+                        <span>Modo Claro/Escuro</span>
+                    </div>
+
+                    <div class="config-item">
+                        <h3>ℹ️ Sobre</h3>
+                        <p>NeoTube v1.0</p>
+                        <p>Aplicativo desenvolvido com YouTube Data API v3</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div id="playerModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div id="playerContainer" class="player-container"></div>
+        </div>
+    </div>
+
+    <div id="toastContainer" class="toast-container"></div>
+    <div id="loadingScreen" class="loading-screen">
+        <div class="neon-loader"></div>
+        <p>Carregando dados...</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
